@@ -1,10 +1,78 @@
+@import "@fontsource/roboto/100.css";
+@import "@fontsource/roboto/400.css";
+@import "@fontsource/roboto/700.css";
 
 .App {
-  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  background: #f8fafc;
   min-height: 100vh;
+  min-width: 100vw;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Roboto', 'Segoe UI', 'Arial', sans-serif;
+}
+
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  background: #000;
+}
+
+.center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  max-width: 100vw;
+  padding: 0 5vw;
+  box-sizing: border-box;
+}
+
+.journey-btn {
+  font-family: 'Roboto', 'Segoe UI', 'Arial', sans-serif;
+  font-size: 2rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 40px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-weight: 100;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.2);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s, transform 0.2s;
+  width: 100%;
+  max-width: 350px;
+  min-width: 180px;
+}
+.journey-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .journey-btn {
+    font-size: 1.2rem;
+    padding: 0.7rem 1.2rem;
+    max-width: 90vw;
+  }
+  .center-content {
+    padding: 0 2vw;
+  }
 }
 
 .App-logo {

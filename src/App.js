@@ -1,29 +1,44 @@
 
+
+
 import './App.css';
-import Home from './Home';
+import React, { useState } from 'react';
+
+import ButtonLineTransition from './ButtonLineTransition';
 import About from './About';
-import Projects from './Projects';
-import Contact from './Contact';
 
 
 function App() {
+  const [showLine, setShowLine] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
+  const [buttonRect, setButtonRect] = useState(null);
+
+  const handleJourneyClick = (e) => {
+    const rect = e.target.getBoundingClientRect();
+    setButtonRect(rect);
+    setShowLine(true);
+  };
+
+  const handleLineComplete = () => {
+    setShowAbout(true);
+    setShowLine(false);
+  };
+
   return (
     <div className="App">
-      <nav className="navbar">
-        <a href="#home" className="nav-logo">Anshu Sharma</a>
-        <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+      <video autoPlay loop muted className="bg-video">
+        <source src="/starry-bg.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      {!showAbout && (
+        <div className="center-content">
+          <button className="journey-btn" onClick={handleJourneyClick}>My Journey</button>
         </div>
-      </nav>
-      <Home />
-      <About />
-      <Projects />
-      <Contact />
-      <footer className="footer">
-        &copy; {new Date().getFullYear()} Anshu Sharma. All rights reserved.
-      </footer>
+      )}
+      {showLine && (
+        <ButtonLineTransition buttonRect={buttonRect} onComplete={handleLineComplete} />
+      )}
+      {showAbout && <About />}
     </div>
   );
 }
