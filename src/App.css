@@ -65,21 +65,29 @@
 }
 
 @media (max-width: 600px) {
+  /* Responsive My Journey button */
   .journey-btn {
-    font-size: 1.2rem;
-    padding: 0.7rem 1.2rem;
+    font-size: clamp(1.1rem, 5vw, 2.2rem);
+    padding: clamp(0.7rem, 3vw, 1.1rem) clamp(1.5rem, 10vw, 3.5rem);
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: none;
+    border-radius: 2.5rem;
+    box-shadow: 0 2px 24px 0 #0002;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-weight: 100;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    outline: none;
+    margin-top: 1.5rem;
     max-width: 90vw;
-  }
-  .center-content {
-    padding: 0 2vw;
+    min-width: 120px;
+    width: fit-content;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
   }
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
